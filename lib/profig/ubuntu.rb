@@ -1,4 +1,5 @@
 require 'profig/linux'
+require 'profig/debian'
 
 module Profig
 
@@ -22,6 +23,10 @@ def self.handle_ubuntu_system_user(user_name)
 	cmd = "adduser -q --system --no-create-home"
 	cmd += " --disabled-password --disabled-login #{user_name}"
 	system cmd
+end
+
+def self.handle_ubuntu_deb(pkg_name)
+	Profig.handle_debian_deb pkg_name
 end
 
 
