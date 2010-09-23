@@ -58,9 +58,5 @@ Cant:
 
 # Links
 
-<dl>
-	<dt>Source</dt>
-		<dd>[github.com/mdg/profig](http://github.com/mdg/profig)</dd>
-	<dt>Gem</dt>
-		<dd>[rubygems.org/gems/profig](https://rubygems.org/gems/profig)</dd>
-</dl>
+* [Source Code](http://github.com/mdg/profig)
+* [Gem](https://rubygems.org/gems/profig)
