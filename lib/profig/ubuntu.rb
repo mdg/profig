@@ -4,7 +4,7 @@ require 'profig/debian'
 module Profig
 
 
-def self.handle_ubuntu_system_group(group_name)
+def self.handle_ubuntu_group(group_name, opts)
 	if not group_name.instance_of? String
 		raise 'Unknown group definition'
 	end
@@ -13,7 +13,7 @@ def self.handle_ubuntu_system_group(group_name)
 	system(cmd)
 end
 
-def self.handle_ubuntu_system_user(user_name)
+def self.handle_ubuntu_user(user_name, opts)
 	if not user_name.instance_of? String
 		raise 'Unknown user type'
 	elsif not /[a-zA-Z][a-zA-Z0-9_]+/.match user_name
@@ -25,8 +25,12 @@ def self.handle_ubuntu_system_user(user_name)
 	system cmd
 end
 
-def self.handle_ubuntu_deb(pkg_name)
-	Profig.handle_debian_deb pkg_name
+def self.handle_ubuntu_deb(pkg_name, opts)
+	Profig.handle_debian_deb(pkg_name, opts)
+end
+
+def self.handle_ubuntu_dir(name, opts)
+	Profig.handle_linux_dir(name, opts)
 end
 
 

@@ -6,7 +6,14 @@ module Profig
 
 def self.run_handler(handler, items)
 	items.each do |i|
-		handler.call(i)
+		if i.instance_of? String
+			name = i
+			opts = nil
+		else
+			name = i.keys[0]
+			opts = i[name]
+		end
+		handler.call(name, opts)
 	end
 end
 
