@@ -60,7 +60,7 @@ Cant:
 
 <dl>
 	<dt>Source</dt>
-		<dd>http://github.com/mdg/profig</dd>
+		<dd>[http://github.com/mdg/profig]</dd>
 	<dt>Gem</dt>
-		<dd>https://rubygems.org/gems/profig</dd>
+		<dd>(https://rubygems.org/gems/profig)</dd>
 </dl>
