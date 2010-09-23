@@ -7,18 +7,19 @@ whole-heartedly supports figs.
 # Sample
 Profig expects system configuration in YAML, and it looks like this:
 <pre>
-group:
-  - ur_app_group
-user:
-  - ur_app_user
-dir:
-  - /var/lib/ur_app
-        owner: ur_app_user:ur_app_group
-        mode: 0755
-deb:
-  - ruby
-  - rubygems
-  - erlang
+profig:
+  - group:
+      - ur_app_group
+  - user:
+      - ur_app_user
+  - dir:
+      - /var/lib/ur_app
+            owner: ur_app_user:ur_app_group
+            mode: 0755
+  - deb:
+      - ruby
+      - rubygems
+      - erlang
 </pre>
 
 Profig will read that config file and do a few things (if necessary):
@@ -27,6 +28,9 @@ Profig will read that config file and do a few things (if necessary):
 * Create a system user called ur_app_user
 * Create the /var/lib/ur_app directory and set it to be owned by the ur_app_user and ur_app_group with 0755 permissions
 * Install the ruby, rubygems & erlang debian packages
+
+Each of these items will be handled in the order they appear in the file.
+If an item is already in the correct state, nothing will be done.
 
 
 # Deployment
@@ -43,8 +47,9 @@ and will run against all the files there.
 Can:
 
 * Create users & groups
-* Create directories
-* Install debian packages
+* Create directories & manage their permissions
+* Deploy files & manage their permissions
+* Install & update debian packages
 
 Cant:
 
