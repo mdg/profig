@@ -33,5 +33,9 @@ def self.handle_ubuntu_dir(name, opts)
 	Profig.handle_linux_dir(name, opts)
 end
 
+def self.handle_ubuntu_file(name, opts)
+	Profig.handle_linux_file(name, opts)
+end
+
 
 end # module
