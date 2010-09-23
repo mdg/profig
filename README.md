@@ -55,3 +55,12 @@ Cant:
 
 * Everything else
 
+
+# Links
+
+<dl>
+	<dt>Source</dt>
+		<dd>http://github.com/mdg/profig</dd>
+	<dt>Gem</dt>
+		<dd>https://rubygems.org/gems/profig</dd>
+</dl>
