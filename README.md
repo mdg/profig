@@ -18,9 +18,7 @@ profig:
             mode: 0755
   - deb:
       - ruby
-      - rubygems
       - python
-      - python-pip
       - mongodb
   - egg:
       - tornado
@@ -34,7 +32,7 @@ Profig will read that config file and do a few things (if necessary):
 * Create a system group called ur_app_group
 * Create a system user called ur_app_user
 * Create the /var/lib/ur_app directory and set it to be owned by the ur_app_user and ur_app_group with 0755 permissions
-* Install the ruby, rubygems, python, python-pip & mongodb debian packages
+* Install the ruby, python & mongodb debian packages
 * Install the tornado & pymongo python eggs
 * Install the rails gem
 
