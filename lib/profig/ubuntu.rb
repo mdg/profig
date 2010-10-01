@@ -31,7 +31,7 @@ def self.handle_ubuntu_deb(pkg_name, opts)
 end
 
 def self.handle_ubuntu_egg(egg_name, opts)
-	Profig.handle_egg_item(egg_name, opts)
+	Profig.handle_egg(egg_name, opts)
 end
 
 def self.handle_ubuntu_dir(name, opts)
