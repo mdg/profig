@@ -1,3 +1,8 @@
+# v0.04
+### Added:
+
+* Installing ruby gems
+
 # v0.03
 ### Added:
 
