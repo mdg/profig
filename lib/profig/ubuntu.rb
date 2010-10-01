@@ -1,6 +1,7 @@
 require 'profig/linux'
 require 'profig/debian'
 require 'profig/python'
+require 'profig/ruby'
 
 module Profig
 
@@ -32,6 +33,10 @@ end
 
 def self.handle_ubuntu_egg(egg_name, opts)
 	Profig.handle_egg(egg_name, opts)
+end
+
+def self.handle_ubuntu_gem(gem_name, opts)
+	Profig.handle_gem(gem_name, opts)
 end
 
 def self.handle_ubuntu_dir(name, opts)
