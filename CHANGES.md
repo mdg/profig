@@ -1,3 +1,8 @@
+# v0.03
+### Added:
+
+* Installing python eggs
+
 # v0.02
 ### Changed:
 
