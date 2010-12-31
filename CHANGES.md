@@ -1,3 +1,8 @@
+# v0.06
+### Added:
+
+* Installing haskell cabal packages
+
 # v0.04
 ### Added:
 
