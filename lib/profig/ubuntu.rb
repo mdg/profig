@@ -1,5 +1,6 @@
 require 'profig/linux'
 require 'profig/debian'
+require 'profig/haskell'
 require 'profig/python'
 require 'profig/ruby'
 
@@ -25,6 +26,10 @@ def self.handle_ubuntu_user(user_name, opts)
 	cmd = "adduser -q --system --no-create-home"
 	cmd += " --disabled-password --disabled-login #{user_name}"
 	system cmd
+end
+
+def self.handle_ubuntu_cabal(pkg_name, opts)
+	Profig.handle_cabal(pkg_name, opts)
 end
 
 def self.handle_ubuntu_deb(pkg_name, opts)

@@ -31,6 +31,10 @@ class Section
 		end
 		@items << item
 	end
+
+	def to_s()
+		return "#<Profig::Section:#{@type}>"
+	end
 end
 
 
