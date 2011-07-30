@@ -1,3 +1,8 @@
+# v0.07
+### Added:
+
+* Support for yum
+
 # v0.06
 ### Added:
 
