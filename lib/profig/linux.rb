@@ -4,7 +4,29 @@ require 'fileutils'
 module Profig
 
 
-def self.handle_linux_file(name, opts)
+def self.handle_user(user_name, opts)
+	if not user_name.instance_of? String
+		raise 'Unknown user type'
+	elsif not /[a-zA-Z][a-zA-Z0-9_]+/.match user_name
+		raise 'Invalid user format'
+	end
+
+	cmd = "adduser -q --system --no-create-home"
+	cmd += " --disabled-password --disabled-login #{user_name}"
+	system cmd
+end
+
+def self.handle_group(group_name, opts)
+	if not group_name.instance_of? String
+		raise 'Unknown group definition'
+	end
+
+	cmd = "addgroup -q --system #{group_name}"
+	system(cmd)
+end
+
+
+def self.handle_file(name, opts)
 	src = opts['source']
 	owner, group = split_owner(opts['owner'])
 	mode = opts['mode']
@@ -15,7 +37,7 @@ def self.handle_linux_file(name, opts)
 end
 
 
-def self.handle_linux_dir(name, opts)
+def self.handle_dir(name, opts)
 	owner, group = split_owner(opts['owner'])
 	mode = opts['mode']
 

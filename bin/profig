@@ -24,12 +24,11 @@ def main()
 	p opts
 	p args
 
-	os = :ubuntu
 	dir = opts[:directory]
 	dir = '/var/lib/profig/conf.d' if dir.nil?
 
 	config = Profig.load_config(dir)
-	Profig.run(os, config)
+	Profig.run(config)
 end
 
 

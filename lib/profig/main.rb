@@ -1,5 +1,5 @@
-require 'profig/ubuntu'
-
+require 'profig/install'
+require 'profig/linux'
 
 module Profig
 
@@ -12,7 +12,7 @@ def self.run_item_handler(handler, items)
 end
 
 
-def self.run(os, sections)
+def self.run(sections)
 	users_groups = `id -G`.split()
 	if not users_groups.include? "0"
 		# this should be made an exception at some point
@@ -22,9 +22,9 @@ def self.run(os, sections)
 
 	sections.each do |section|
 		type = section.type
-		section_handler_name = "handle_#{type}_section_for_#{os}"
+		section_handler_name = "handle_#{type}_section"
 		#item_handler_name = "handle_#{type}_for_#{os}"
-		item_handler_name = "handle_#{os}_#{type}"
+		item_handler_name = "handle_#{type}"
 
 		# first check if there's a section handler for this type
 		# a section handler takes all items at once
