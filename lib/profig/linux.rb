@@ -11,9 +11,12 @@ def self.handle_user(user_name, opts)
 		raise 'Invalid user format'
 	end
 
-	cmd = "adduser --quiet --system --no-create-home"
-	cmd += " --disabled-password --disabled-login #{user_name}"
+	cmd = "useradd --system --no-create-home"
+	cmd += " --disabled-login #{user_name}"
 	system cmd
+	if $?.exitstatus not in [0,9] then
+		raise "Error creating user (#{$?.exitstatus}): #{user_name}"
+	end
 end
 
 def self.handle_group(group_name, opts)
@@ -21,8 +24,8 @@ def self.handle_group(group_name, opts)
 		raise 'Unknown group definition'
 	end
 
-	cmd = "addgroup --quiet --system #{group_name}"
-	system(cmd)
+	cmd = "groupadd --force --system #{group_name}"
+	system cmd
 end
 
 
