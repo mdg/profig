@@ -1,3 +1,13 @@
+# v0.08
+### Fixed:
+
+Error message if missing file options
+
+### Changed:
+
+Handle files and groups with useradd instead of adduser
+
+
 # v0.07
 ### Added:
 
