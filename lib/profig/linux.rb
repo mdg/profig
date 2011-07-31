@@ -11,10 +11,9 @@ def self.handle_user(user_name, opts)
 		raise 'Invalid user format'
 	end
 
-	cmd = "useradd --system --no-create-home"
-	cmd += " --disabled-login #{user_name}"
+	cmd = "useradd --no-user-group --system --no-create-home #{user_name}"
 	system cmd
-	if $?.exitstatus not in [0,9] then
+	if not [0,9].include?($?.exitstatus) then
 		raise "Error creating user (#{$?.exitstatus}): #{user_name}"
 	end
 end
