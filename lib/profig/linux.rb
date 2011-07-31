@@ -33,6 +33,9 @@ def self.handle_file(name, opts)
 	owner, group = split_owner(opts['owner'])
 	mode = opts['mode']
 
+	raise 'nil filename' if not name
+	raise "nil file source for #{name}" if not src
+
 	FileUtils.copy(src, name)
 	FileUtils.chown(owner, group, name)
 	FileUtils.chmod(mode, name) if mode
