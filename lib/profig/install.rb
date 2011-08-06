@@ -2,7 +2,8 @@
 module Profig
 # Handlers for various installers / package managers
 
-
+# Package Installers
+#
 def self.handle_cabal(pkg_name, opts)
 	cmd = "cabal install #{package_name}"
 	system cmd
@@ -28,5 +29,16 @@ def self.handle_yum(pkg_name, opts)
 	system cmd
 end
 
+
+# Source Installers
+#
+def self.handle_rake(path, opts)
+	pwd = Dir.pwd
+	Dir.chdir path
+	target = opts['target']
+	cmd = "rake #{target}"
+	system cmd
+	Dir.chdir pwd
+end
 
 end # module

@@ -10,6 +10,7 @@ class Item
 
 	def initialize(name, opts)
 		@name = name
+		opts = {} if opts.nil?
 		@opts = opts
 	end
 end
