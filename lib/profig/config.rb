@@ -39,7 +39,7 @@ class Section
 end
 
 
-def self.load_config_yaml(directory)
+def self.load_config_directory(directory)
 	# do a stable ordering by alphabetical
 	files = Dir.glob("#{directory}/*").sort
 	confs = []
@@ -92,9 +92,12 @@ def self.yaml_to_sections(yaml)
 	return section_acc
 end
 
-
-def self.load_config(directory)
-	confs = load_config_yaml(directory)
+def self.load_config(path)
+	if File.file? path then
+		confs = [YAML.load_file(path)]
+	elsif File.directory? path then
+		confs = load_config_directory(path)
+	end
 	return yaml_to_sections(confs)
 end
 

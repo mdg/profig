@@ -11,6 +11,9 @@ def parse_args()
 	OptionParser.new do |opts|
 		opts.banner = 'Usage: profig'
 
+		opts.on('-f', '--file FILE', 'Select file') do |f|
+			options[:file] = f
+		end
 		opts.on('-d', '--directory DIR', 'Select directory') do |d|
 			options[:directory] = d
 		end
@@ -24,10 +27,19 @@ def main()
 	p opts
 	p args
 
+	file = opts[:file]
 	dir = opts[:directory]
-	dir = '/var/lib/profig/conf.d' if dir.nil?
+	if file.nil? and dir.nil?
+		config_path = '/var/lib/profig/conf.d'
+	elsif file.nil?
+		config_path = dir
+	elsif dir.nil?
+		config_path = file
+	else
+		config_path = [file,dir]
+	end
 
-	config = Profig.load_config(dir)
+	config = Profig.load_config(config_path)
 	Profig.run(config)
 end
 
