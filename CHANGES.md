@@ -1,3 +1,9 @@
+# v0.09
+### Added:
+
+* Support for rake
+* Running with a particular file
+
 # v0.08
 ### Fixed:
 
