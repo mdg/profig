@@ -24,10 +24,12 @@ def self.handle_gem(gem_name, opts)
 	system cmd
 end
 
-def self.handle_yum(pkg_name, opts)
+def self.handle_rpm(pkg_name, opts)
 	cmd = "yum install -y #{pkg_name}"
 	system cmd
 end
+
+self.handle_yum = self.handle_rpm
 
 
 # Source Installers
