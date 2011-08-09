@@ -57,8 +57,12 @@ Can:
 * Create directories & manage their permissions
 * Deploy files & manage their permissions
 * Install & update debian packages
+* Install & update RPMs
 * Install & update python eggs
 * Install & update ruby gems
+* Install & update haskell packages
+* Execute locally installed Rakefiles
+* Manage iptables
 
 Cant:
 

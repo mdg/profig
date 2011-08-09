@@ -1,3 +1,10 @@
+# v0.10
+### Added:
+
+* Support for installing multiple packages in one command
+  This should make big package install lists go faster
+* Support for iptables
+
 # v0.09
 ### Added:
 
