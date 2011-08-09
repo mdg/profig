@@ -71,4 +71,13 @@ def self.split_owner(owner_str)
 end
 
 
+def self.handle_iptables_set(iptables)
+	system 'iptables -F'
+	iptables.each do |cfg|
+		system "iptables #{cfg}"
+	end
+	system "/sbin/service iptables save"
+end
+
+
 end # module
