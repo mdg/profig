@@ -22,8 +22,7 @@ def self.run(sections)
 
 	sections.each do |section|
 		type = section.type
-		section_handler_name = "handle_#{type}_section"
-		#item_handler_name = "handle_#{type}_for_#{os}"
+		section_handler_name = "handle_#{type}_set"
 		item_handler_name = "handle_#{type}"
 
 		# first check if there's a section handler for this type

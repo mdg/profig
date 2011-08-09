@@ -9,27 +9,41 @@ def self.handle_cabal(pkg_name, opts)
 	system cmd
 end
 
-def self.handle_deb(pkg_name, opts)
-	cmd = "apt-get install -y #{pkg_name}"
+def self.handle_deb_set(pkgs)
+	cmd = "apt-get install -y"
+	pkgs.each do |pkg|
+		cmd += ' '+ pkg.name
+	end
 	system cmd
 end
 
-def self.handle_egg(egg_name, opts)
-	cmd = "pip install #{egg_name}"
+def self.handle_egg_set(eggs)
+	cmd = "pip install"
+	eggs.each do |egg|
+		cmd += ' '+ egg.name
+	end
 	system cmd
 end
 
-def self.handle_gem(gem_name, opts)
-	cmd = "gem install #{gem_name}"
+def self.handle_gem_set(gems)
+	cmd = "gem install"
+	gems.each do |gem|
+		cmd += ' '+ gem.name
+	end
 	system cmd
 end
 
-def self.handle_rpm(pkg_name, opts)
-	cmd = "yum install -y #{pkg_name}"
+def self.handle_rpm_set(rpms)
+	cmd = "yum install -y"
+	rpms.each do |rpm|
+		cmd += ' '+ rpm.name
+	end
 	system cmd
 end
 
-self.handle_yum = self.handle_rpm
+def self.handle_yum_set(rpms)
+	self.handle_rpm_set(rpms)
+end
 
 
 # Source Installers
